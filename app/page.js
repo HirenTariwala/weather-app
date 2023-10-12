@@ -4,7 +4,9 @@ import WeatherCard from "@/components/WeatherCard";
 import useFetchWeather from "@/hooks/useFetchWeather";
 
 export default function Home() {
-  const { isLoading, weather, handleSearch, setCity } = useFetchWeather();
+  const { isLoading,isDataFetch, weather, handleSearch, setCity } = useFetchWeather();
+
+  console.log('data', isLoading,isDataFetch);
 
   return (
     <main className="min-h-screen p-12">
@@ -73,7 +75,9 @@ export default function Home() {
             <span className="text-white">Fetching Data...</span>
           </div>
         </div>
-      ) : (
+      ) : isDataFetch ?  <div className="text-center">
+      We couldn’t find any results. Try checking your spelling.
+    </div> : (
         <WeatherCard data={weather} />
       )}
     </main>
