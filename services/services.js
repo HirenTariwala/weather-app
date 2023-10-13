@@ -1,7 +1,7 @@
 export const fetchWeather = async (coords) => {
   try {
     const data = await fetch(
-      `${process.env.BASE_URL}/weather?lat=${coords.lat}&lon=${coords.lng}&appid=${process.env.API_KEY}&units=metric`
+      `https://${process.env.BASE_URL}/weather?lat=${coords.lat}&lon=${coords.lng}&appid=${process.env.API_KEY}&units=metric`
     );
     const res = await data.json();
     return res;
@@ -13,7 +13,7 @@ export const fetchWeather = async (coords) => {
 export const fetchForcast = async (coords) => {
   try {
     const data = await fetch(
-      `${process.env.BASE_URL}/forecast?lat=${coords.lat}&lon=${coords.lng}&appid=${process.env.API_KEY}&units=metric`
+      `https://${process.env.BASE_URL}/forecast?lat=${coords.lat}&lon=${coords.lng}&appid=${process.env.API_KEY}&units=metric`
     );
     const res = await data.json();
     return res;
@@ -25,7 +25,7 @@ export const fetchForcast = async (coords) => {
 export const fetchWeatherByCity = async (city) => {
   try {
     const data = await fetch(
-      `${process.env.BASE_URL}/weather?appid=${process.env.API_KEY}&units=metric&q=${city}`
+      `https://${process.env.BASE_URL}/weather?appid=${process.env.API_KEY}&units=metric&q=${city}`
     );
     const res = await data.json();
     return res;
@@ -37,7 +37,7 @@ export const fetchWeatherByCity = async (city) => {
 export const fetchForcastByCity = async (city) => {
   try {
     const data = await fetch(
-      `${process.env.BASE_URL}/forecast?appid=${process.env.API_KEY}&units=metric&q=${city}`
+      `https://${process.env.BASE_URL}/forecast?appid=${process.env.API_KEY}&units=metric&q=${city}`
     );
     const res = await data.json();
     return res;
